@@ -19,13 +19,19 @@ body {
 }
 
 #push-btn,#unshift-btn {
-    background-color: #80D87F;
+    background-color: darkcyan;
     cursor: pointer;
+    background: transparent;
+    color: darkcyan;
+    border: 1px solid darkcyan;
 }
 
 #shift-btn,#pop-btn {
     background-color: #E23349;
     cursor: pointer;
+    color: #E23349;
+    background: transparent;
+    border: 1px solid #E23349;
 }
 
 #clear-btn{
@@ -42,7 +48,7 @@ input {
     margin: 0 auto;
     display: block;
     border: none;
-    height: 30px;
+    height: 40px;
     background: white;
     border-radius: 6px;
     text-align: center;
@@ -51,18 +57,19 @@ input {
 button {
     font-family: Baloo;
     letter-spacing: px;
-    background: darkcyan;
-    color: white;
+    background: transparent;
+    color: darkcyan;
     border: none;
     padding: 4px 10px;
     border-radius: 6px;
     margin: 0 4px;
+    border: 1px solid darkcyan;
 }
 
 .buttons-wrapper {
     display: flex;
     justify-content: center;
-    margin: 10px 0 40px;
+    margin: 20px 0 0;
 }
 
 
