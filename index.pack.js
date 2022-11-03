@@ -73,7 +73,22 @@
 "use strict";
 
 
-var myEmojis = ["👨‍💻", "⛷", "🍲"];
+var myEmojis = [];
+var emojiInput = document.getElementById("emoji-input");
+var shiftBtn = document.getElementById("shift-btn");
+var unshiftBtn = document.getElementById("unshift-btn");
+var pushBtn = document.getElementById("push-btn");
+var popBtn = document.getElementById("pop-btn");
+
+var emojisFromLocalStorage = JSON.parse(localStorage.getItem("emojis"));
+if (emojisFromLocalStorage) {
+    myEmojis = emojisFromLocalStorage;
+    renderEmojis();
+}
+
+function modifyLocalStorage(arr) {
+    localStorage.setItem("emojis", JSON.stringify(arr));
+}
 
 function renderEmojis() {
     var emojiContainer = document.getElementById("emoji-container");
@@ -85,37 +100,33 @@ function renderEmojis() {
     }
 }
 
-renderEmojis();
-
-var pushBtn = document.getElementById("push-btn");
 pushBtn.addEventListener("click", function () {
-    var emojiInput = document.getElementById("emoji-input");
     if (emojiInput.value) {
         myEmojis.push(emojiInput.value);
         emojiInput.value = "";
+        modifyLocalStorage(myEmojis);
         renderEmojis();
     }
 });
 
-var unshiftBtn = document.getElementById("unshift-btn");
 unshiftBtn.addEventListener("click", function () {
-    var emojiInput = document.getElementById("emoji-input");
     if (emojiInput.value) {
         myEmojis.unshift(emojiInput.value);
         emojiInput.value = "";
+        modifyLocalStorage(myEmojis);
         renderEmojis();
     }
 });
 
-var popBtn = document.getElementById("pop-btn");
 popBtn.addEventListener("click", function () {
     myEmojis.pop();
+    modifyLocalStorage(myEmojis);
     renderEmojis();
 });
 
-var shiftBtn = document.getElementById("shift-btn");
 shiftBtn.addEventListener("click", function () {
     myEmojis.shift();
+    modifyLocalStorage(myEmojis);
     renderEmojis();
 });
 
