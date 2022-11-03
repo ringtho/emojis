@@ -79,6 +79,7 @@ var shiftBtn = document.getElementById("shift-btn");
 var unshiftBtn = document.getElementById("unshift-btn");
 var pushBtn = document.getElementById("push-btn");
 var popBtn = document.getElementById("pop-btn");
+var clearBtn = document.getElementById("clear-btn");
 
 var emojisFromLocalStorage = JSON.parse(localStorage.getItem("emojis"));
 if (emojisFromLocalStorage) {
@@ -127,6 +128,12 @@ popBtn.addEventListener("click", function () {
 shiftBtn.addEventListener("click", function () {
     myEmojis.shift();
     modifyLocalStorage(myEmojis);
+    renderEmojis();
+});
+
+clearBtn.addEventListener("click", function () {
+    localStorage.clear();
+    myEmojis = "";
     renderEmojis();
 });
 

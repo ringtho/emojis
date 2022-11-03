@@ -4,6 +4,7 @@ const shiftBtn = document.getElementById("shift-btn")
 const unshiftBtn = document.getElementById("unshift-btn")
 const pushBtn = document.getElementById("push-btn")
 const popBtn = document.getElementById("pop-btn")
+const clearBtn = document.getElementById("clear-btn")
 
 let emojisFromLocalStorage = JSON.parse(localStorage.getItem("emojis"))
 if(emojisFromLocalStorage){
@@ -52,5 +53,11 @@ popBtn.addEventListener("click", function(){
 shiftBtn.addEventListener("click", function(){
     myEmojis.shift()
     modifyLocalStorage(myEmojis)
+    renderEmojis()
+})
+
+clearBtn.addEventListener("click", function(){
+    localStorage.clear()
+    myEmojis = ""
     renderEmojis()
 })

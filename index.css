@@ -20,10 +20,16 @@ body {
 
 #push-btn,#unshift-btn {
     background-color: #80D87F;
+    cursor: pointer;
 }
 
 #shift-btn,#pop-btn {
     background-color: #E23349;
+    cursor: pointer;
+}
+
+#clear-btn{
+    cursor: pointer;
 }
 
 h1 {
@@ -58,4 +64,6 @@ button {
     justify-content: center;
     margin: 10px 0 40px;
 }
+
+
 
